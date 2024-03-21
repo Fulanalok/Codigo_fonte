@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite seu numero");
+        int numero = scanner.nextInt();
+
+        if (pertenceSequenciaF(numero)) {
+            System.out.println(numero + "Pertence a sequencia");
+        } else {
+            System.out.println(numero + "Nao pertence a sequencia");
+        }
+    }
+
+    public static boolean pertenceSequenciaF(int numero) {
+
+        if (numero == 0 | numero == 1) {
+            return true;
+        }
+
+        int anterior = 0;
+        int atual = 1;
+
+        while (atual <= numero) {
+            int proximo = anterior + atual;
+            anterior = atual;
+            atual = proximo;
+            if (numero == atual) {
+                return true;
+            }
+        }
+
+        return false;
+
+    }
+}
